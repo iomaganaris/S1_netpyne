@@ -46,8 +46,8 @@ NEURON {
     GLOBAL ninf, ntau,a,b,P_a,P_b, deterministic
     GLOBAL Ra, Rb
     GLOBAL vmin, vmax, q10, temp, tadj
-    :BBCOREPOINTER rng
-    POINTER rng
+    BBCOREPOINTER rng
+    :POINTER rng
 }
 
 UNITS {
@@ -126,7 +126,7 @@ INITIAL {
 
     VERBATIM
     if (_p_rng) {
-//	      nrnran123_setseq((nrnran123_State*)_p_rng, 0, 0);
+        nrnran123_setseq((nrnran123_State*)_p_rng, 0, 0);
     }
     if (cvode_active_ && !deterministic) {
         hoc_execerror("StochKv with deterministic=0", "cannot be used with cvode");

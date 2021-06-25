@@ -22,6 +22,7 @@ NEURON {
 	RANGE m, h, gca, gbar
 	RANGE minf, hinf, mtau, htau
 	RANGE q10, temp, tadj, vmin, vmax, vshift
+    THREADSAFE
 }
 
 PARAMETER {
