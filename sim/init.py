@@ -48,4 +48,7 @@ sim.analysis.plotRaster(include=cfg.popParamLabels, timeRange=[0,cfg.duration], 
 # sim.analysis.plotTraces(include=cfg.recordCells, overlay=True, oneFigPer='cell', figSize=(12, 4), fontSize=7, saveFig=True)
 # sim.analysis.plotTraces(include=cfg.recordCells, overlay=False, oneFigPer='trace', figSize=(18, 12), fontSize=9, saveFig=True)
 
-
+if sim.rank == 0:
+    with open('out_neuron.dat', 'w') as f:
+        for spkid, spkt in zip(sim.allSimData['spkid'], sim.allSimData['spkt']):
+            f.write('%.8g\t%d\n' % (spkt, spkid))
